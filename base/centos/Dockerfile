@@ -5,7 +5,8 @@ MAINTAINER wjy
 # install openssh and openssl
 RUN set -ex \
 	&& yum install -y openssh-clients openssh-server openssl \
-	&& mkdir -p /var/run/sshd
+	&& mkdir -p /var/run/sshd \
+	&& /usr/bin/ssh-keygen -A
     
 # Allow OpenSSH to talk to containers without asking for confirmation
 RUN set -ex \
