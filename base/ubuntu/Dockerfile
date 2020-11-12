@@ -7,7 +7,8 @@ MAINTAINER wjy
 RUN set -ex \
 	&& apt-get -o Acquire::Check-Valid-Until=false  -o Acquire::Check-Date=false   update \
 	&& apt-get install -y --no-install-recommends openssh-client openssh-server \
-	&& mkdir -p /var/run/sshd
+	&& mkdir -p /var/run/sshd \
+	&& /usr/bin/ssh-keygen -A
 
 # Allow OpenSSH to talk to containers without asking for confirmation
 RUN set -ex \
